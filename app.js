@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config({path: '.env'});
 
 try {
-  await mongoose.connect(process.MONGODB, {
+  await mongoose.connect(process.env.MONGODB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
@@ -36,4 +36,4 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(process.PORT || 8081, () => {});
+app.listen(process.env.PORT || 8081, () => {});
