@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config({path: '.env'});
 
 try {
-  await mongoose.connect('mongodb+srv://srpp-user-igti:01201073@grades.vi901.mongodb.net/grades?retryWrites=true&w=majority', {
+  await mongoose.connect(process.MONGODB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
@@ -36,4 +36,4 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(process.env.PORT || 8081, () => {});
+app.listen(process.PORT || 8081, () => {});
