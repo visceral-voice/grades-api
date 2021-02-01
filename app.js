@@ -7,17 +7,26 @@ import { gradeRouter } from './routes/gradeRouter.js'
 import dotenv from 'dotenv';
 dotenv.config({path: '.env'});
 
-try {
-  await mongoose.connect(process.env.MONGODB, {
+// try {
+//   await mongoose.connect(process.env.MONGODB, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//       useFindAndModify: false,
+//       useCreateIndex: true
+//   })
+//   console.log("MongoDB conectado!");
+// } catch (err) {
+// console.log("Erro ao conectar no MongoDB " + err);
+// }
+
+  mongoose.connect(process.env.MONGODB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
       useCreateIndex: true
-  })
-  console.log("MongoDB conectado!");
-} catch (err) {
-console.log("Erro ao conectar no MongoDB " + err);
-}
+  }).then (() => {
+    console.log("MongoDB conectado!");
+  }).catch ((err) => { console.log("Erro ao conectar no MongoDB " + err); });
 
 const app = express();
 
