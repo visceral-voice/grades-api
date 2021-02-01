@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config({path: '.env'});
 
 try {
-  await mongoose.connect(process.env.MONGODB, {
+  await mongoose.connect('mongodb+srv://srpp-user-igti:01201073@grades.vi901.mongodb.net/grades?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
