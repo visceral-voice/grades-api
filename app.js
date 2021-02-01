@@ -1,5 +1,5 @@
 import express from 'express';
-import bodyParser, { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { gradeRouter } from './routes/gradeRouter.js'
